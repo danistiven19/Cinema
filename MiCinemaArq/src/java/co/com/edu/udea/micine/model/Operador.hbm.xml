@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11/02/2015 07:39:26 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="co.com.edu.udea.micine.model.Operador" table="operador" catalog="micinemaarq">
         <id name="idOperador" type="java.lang.Integer">
@@ -10,6 +10,9 @@
         </id>
         <many-to-one name="cine" class="co.com.edu.udea.micine.model.Cine" fetch="select">
             <column name="Cine_idCine" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="tipooperador" class="co.com.edu.udea.micine.model.Tipooperador" fetch="select">
+            <column name="TipoOperador_idTipoOperador" not-null="true" />
         </many-to-one>
         <property name="nombre" type="string">
             <column name="Nombre" length="45" />
@@ -25,12 +28,6 @@
                 <column name="Operador_idOperador" not-null="true" />
             </key>
             <one-to-many class="co.com.edu.udea.micine.model.Factura" />
-        </set>
-        <set name="tipooperadors" table="tipooperador" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="Operador_idOperador" unique="true" />
-            </key>
-            <one-to-many class="co.com.edu.udea.micine.model.Tipooperador" />
         </set>
     </class>
 </hibernate-mapping>

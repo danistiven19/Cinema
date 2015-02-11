@@ -7,6 +7,7 @@
 package co.com.edu.udea.micine.DAO;
 
 import co.com.edu.udea.micine.model.Operador;
+import java.util.List;
 
 /**
  *
@@ -17,4 +18,5 @@ public interface IOperadorDAO {
     public void editarOperador(Operador o);
     public Operador buscarOperador(String cedula);
     public void eliminarOperador(String cedula);
+    public List<Operador> listarOperadores();
 }

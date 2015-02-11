@@ -69,4 +69,7 @@
     <bean id="cineDAO" class="co.com.edu.udea.micine.DAO.impl.CineDAOImpl">
         <property name="sessionFactory" ref="hibernateSessionFactory" />
     </bean>
+    <bean id="socioDAO" class="co.com.edu.udea.micine.DAO.impl.SocioDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
 </beans>

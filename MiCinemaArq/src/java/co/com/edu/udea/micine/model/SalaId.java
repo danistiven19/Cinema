@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 07:39:26 AM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
 
 
 

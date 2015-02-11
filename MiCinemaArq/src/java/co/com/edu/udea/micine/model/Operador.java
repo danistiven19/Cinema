@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 07:39:26 AM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -13,28 +13,29 @@ public class Operador  implements java.io.Serializable {
 
      private Integer idOperador;
      private Cine cine;
+     private Tipooperador tipooperador;
      private String nombre;
      private String nombreUsuario;
      private String contrasena;
      private Set<Factura> facturas = new HashSet<Factura>(0);
-     private Set<Tipooperador> tipooperadors = new HashSet<Tipooperador>(0);
 
     public Operador() {
     }
 
 	
-    public Operador(Cine cine, String nombreUsuario, String contrasena) {
+    public Operador(Cine cine, Tipooperador tipooperador, String nombreUsuario, String contrasena) {
         this.cine = cine;
+        this.tipooperador = tipooperador;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
     }
-    public Operador(Cine cine, String nombre, String nombreUsuario, String contrasena, Set<Factura> facturas, Set<Tipooperador> tipooperadors) {
+    public Operador(Cine cine, Tipooperador tipooperador, String nombre, String nombreUsuario, String contrasena, Set<Factura> facturas) {
        this.cine = cine;
+       this.tipooperador = tipooperador;
        this.nombre = nombre;
        this.nombreUsuario = nombreUsuario;
        this.contrasena = contrasena;
        this.facturas = facturas;
-       this.tipooperadors = tipooperadors;
     }
    
     public Integer getIdOperador() {
@@ -50,6 +51,13 @@ public class Operador  implements java.io.Serializable {
     
     public void setCine(Cine cine) {
         this.cine = cine;
+    }
+    public Tipooperador getTipooperador() {
+        return this.tipooperador;
+    }
+    
+    public void setTipooperador(Tipooperador tipooperador) {
+        this.tipooperador = tipooperador;
     }
     public String getNombre() {
         return this.nombre;
@@ -78,13 +86,6 @@ public class Operador  implements java.io.Serializable {
     
     public void setFacturas(Set<Factura> facturas) {
         this.facturas = facturas;
-    }
-    public Set<Tipooperador> getTipooperadors() {
-        return this.tipooperadors;
-    }
-    
-    public void setTipooperadors(Set<Tipooperador> tipooperadors) {
-        this.tipooperadors = tipooperadors;
     }
 
 

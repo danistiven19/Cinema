@@ -7,6 +7,7 @@
 package co.com.edu.udea.micine.DAO;
 
 import co.com.edu.udea.micine.model.Cine;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,8 @@ import co.com.edu.udea.micine.model.Cine;
  */
 public interface ICineDAO {
     public void guardarCine(Cine c);
+    public void editarCine(Cine c);
+    public void eliminarCine(int id);
+    public Cine obtenerCine(int id);
+    public List<Cine> obtenerCines();
 }

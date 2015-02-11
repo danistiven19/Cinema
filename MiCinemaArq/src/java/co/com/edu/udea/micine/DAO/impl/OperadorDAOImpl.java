@@ -7,11 +7,13 @@
 package co.com.edu.udea.micine.DAO.impl;
 
 import co.com.edu.udea.micine.DAO.IOperadorDAO;
+import co.com.edu.udea.micine.model.Cine;
 import co.com.edu.udea.micine.model.Operador;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+
 
 /**
  *
@@ -28,22 +30,46 @@ public class OperadorDAOImpl  implements IOperadorDAO {
        Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.save(o);
+        tx.commit();
         session.close();
     }
 
     @Override
     public void editarOperador(Operador o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.update(o);
+        tx.commit();
+        session.close();
     }
 
     @Override
     public Operador buscarOperador(String cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        Operador o = (Operador) session.get(Operador.class, cedula);
+        tx.commit();
+        session.close();
+        return o;
     }
 
     @Override
     public void eliminarOperador(String cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(this.buscarOperador(cedula));
+        tx.commit();
+        session.close();
+    }
+
+    @Override
+    public List<Operador> listarOperadores() {
+      Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+         List<Operador> result = (List<Operador>)session.createQuery("from Operador").list();
+        tx.commit();
+        session.close();
+        return result;
     }
     
 }
