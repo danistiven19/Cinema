@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="co.com.edu.udea.micine.model.Tipopago" table="tipopago" catalog="micinemaarq">
         <id name="idTipoPago" type="java.lang.Integer">
@@ -11,11 +11,11 @@
         <property name="nombreTipo" type="string">
             <column name="NombreTipo" length="45" not-null="true" />
         </property>
-        <set name="boletas" table="boleta" inverse="true" lazy="true" fetch="select">
+        <set name="facturas" table="factura" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="TipoPago_idTipoPago" not-null="true" />
             </key>
-            <one-to-many class="co.com.edu.udea.micine.model.Boleta" />
+            <one-to-many class="co.com.edu.udea.micine.model.Factura" />
         </set>
     </class>
 </hibernate-mapping>

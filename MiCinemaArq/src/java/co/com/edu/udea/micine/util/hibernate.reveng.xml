@@ -2,20 +2,23 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="micinemaarq"/>
-  <table-filter match-name="tipooperador"/>
-  <table-filter match-name="cine"/>
+  <table-filter match-name="operador"/>
+  <table-filter match-name="tarifa"/>
+  <table-filter match-name="tipopago"/>
+  <table-filter match-name="formato_por_pelicula"/>
+  <table-filter match-name="reserva"/>
+  <table-filter match-name="boleta"/>
   <table-filter match-name="funcion"/>
   <table-filter match-name="asiento"/>
-  <table-filter match-name="formato"/>
-  <table-filter match-name="tarjeta"/>
-  <table-filter match-name="tarifa"/>
-  <table-filter match-name="sala"/>
-  <table-filter match-name="boleta"/>
-  <table-filter match-name="operador"/>
-  <table-filter match-name="pelicula"/>
-  <table-filter match-name="socio"/>
+  <table-filter match-name="combo_has_factura"/>
+  <table-filter match-name="combo"/>
+  <table-filter match-name="tipooperador"/>
   <table-filter match-name="localidad"/>
-  <table-filter match-name="formato_por_pelicula"/>
   <table-filter match-name="factura"/>
-  <table-filter match-name="tipopago"/>
+  <table-filter match-name="sala"/>
+  <table-filter match-name="formato"/>
+  <table-filter match-name="cine"/>
+  <table-filter match-name="tarjeta"/>
+  <table-filter match-name="socio"/>
+  <table-filter match-name="pelicula"/>
 </hibernate-reverse-engineering>

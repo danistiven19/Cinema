@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -17,6 +17,7 @@ public class Socio  implements java.io.Serializable {
      private String telefono;
      private boolean estado;
      private String cedula;
+     private Set<Reserva> reservas = new HashSet<Reserva>(0);
      private Set<Factura> facturas = new HashSet<Factura>(0);
      private Set<Tarjeta> tarjetas = new HashSet<Tarjeta>(0);
 
@@ -31,13 +32,14 @@ public class Socio  implements java.io.Serializable {
         this.estado = estado;
         this.cedula = cedula;
     }
-    public Socio(int idSocio, String nombre, String direccion, String telefono, boolean estado, String cedula, Set<Factura> facturas, Set<Tarjeta> tarjetas) {
+    public Socio(int idSocio, String nombre, String direccion, String telefono, boolean estado, String cedula, Set<Reserva> reservas, Set<Factura> facturas, Set<Tarjeta> tarjetas) {
        this.idSocio = idSocio;
        this.nombre = nombre;
        this.direccion = direccion;
        this.telefono = telefono;
        this.estado = estado;
        this.cedula = cedula;
+       this.reservas = reservas;
        this.facturas = facturas;
        this.tarjetas = tarjetas;
     }
@@ -83,6 +85,13 @@ public class Socio  implements java.io.Serializable {
     
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+    public Set<Reserva> getReservas() {
+        return this.reservas;
+    }
+    
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
     }
     public Set<Factura> getFacturas() {
         return this.facturas;

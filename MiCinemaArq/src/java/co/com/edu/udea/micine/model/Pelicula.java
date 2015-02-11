@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;

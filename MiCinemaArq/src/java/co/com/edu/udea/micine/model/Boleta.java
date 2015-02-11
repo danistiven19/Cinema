@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0
 
 
 
@@ -10,7 +10,6 @@ public class Boleta  implements java.io.Serializable {
 
 
      private Integer idBoleta;
-     private Tipopago tipopago;
      private Asiento asiento;
      private Factura factura;
      private Funcion funcion;
@@ -19,8 +18,7 @@ public class Boleta  implements java.io.Serializable {
     public Boleta() {
     }
 
-    public Boleta(Tipopago tipopago, Asiento asiento, Factura factura, Funcion funcion, boolean esReserva) {
-       this.tipopago = tipopago;
+    public Boleta(Asiento asiento, Factura factura, Funcion funcion, boolean esReserva) {
        this.asiento = asiento;
        this.factura = factura;
        this.funcion = funcion;
@@ -33,13 +31,6 @@ public class Boleta  implements java.io.Serializable {
     
     public void setIdBoleta(Integer idBoleta) {
         this.idBoleta = idBoleta;
-    }
-    public Tipopago getTipopago() {
-        return this.tipopago;
-    }
-    
-    public void setTipopago(Tipopago tipopago) {
-        this.tipopago = tipopago;
     }
     public Asiento getAsiento() {
         return this.asiento;

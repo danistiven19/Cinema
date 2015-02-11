@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Combo" table="combo" catalog="micinemaarq">
+        <id name="idcombo" type="int">
+            <column name="idcombo" />
+            <generator class="assigned" />
+        </id>
+        <property name="puntosAcumular" type="int">
+            <column name="puntosAcumular" not-null="true" />
+        </property>
+        <property name="precio" type="java.lang.Double">
+            <column name="precio" precision="22" scale="0" />
+        </property>
+        <set name="comboHasFacturas" table="combo_has_factura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="combo_idcombo" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.ComboHasFactura" />
+        </set>
+    </class>
+</hibernate-mapping>

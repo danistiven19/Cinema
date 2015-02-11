@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -13,32 +13,39 @@ public class Factura  implements java.io.Serializable {
 
 
      private Integer idFactura;
+     private Tipopago tipopago;
      private Operador operador;
      private Socio socio;
      private double valor;
      private Date fecha;
      private boolean estado;
      private Integer puntosRedimidos;
+     private Set<Reserva> reservas = new HashSet<Reserva>(0);
      private Set<Boleta> boletas = new HashSet<Boleta>(0);
+     private Set<ComboHasFactura> comboHasFacturas = new HashSet<ComboHasFactura>(0);
 
     public Factura() {
     }
 
 	
-    public Factura(Operador operador, double valor, Date fecha, boolean estado) {
+    public Factura(Tipopago tipopago, Operador operador, double valor, Date fecha, boolean estado) {
+        this.tipopago = tipopago;
         this.operador = operador;
         this.valor = valor;
         this.fecha = fecha;
         this.estado = estado;
     }
-    public Factura(Operador operador, Socio socio, double valor, Date fecha, boolean estado, Integer puntosRedimidos, Set<Boleta> boletas) {
+    public Factura(Tipopago tipopago, Operador operador, Socio socio, double valor, Date fecha, boolean estado, Integer puntosRedimidos, Set<Reserva> reservas, Set<Boleta> boletas, Set<ComboHasFactura> comboHasFacturas) {
+       this.tipopago = tipopago;
        this.operador = operador;
        this.socio = socio;
        this.valor = valor;
        this.fecha = fecha;
        this.estado = estado;
        this.puntosRedimidos = puntosRedimidos;
+       this.reservas = reservas;
        this.boletas = boletas;
+       this.comboHasFacturas = comboHasFacturas;
     }
    
     public Integer getIdFactura() {
@@ -47,6 +54,13 @@ public class Factura  implements java.io.Serializable {
     
     public void setIdFactura(Integer idFactura) {
         this.idFactura = idFactura;
+    }
+    public Tipopago getTipopago() {
+        return this.tipopago;
+    }
+    
+    public void setTipopago(Tipopago tipopago) {
+        this.tipopago = tipopago;
     }
     public Operador getOperador() {
         return this.operador;
@@ -90,12 +104,26 @@ public class Factura  implements java.io.Serializable {
     public void setPuntosRedimidos(Integer puntosRedimidos) {
         this.puntosRedimidos = puntosRedimidos;
     }
+    public Set<Reserva> getReservas() {
+        return this.reservas;
+    }
+    
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
     public Set<Boleta> getBoletas() {
         return this.boletas;
     }
     
     public void setBoletas(Set<Boleta> boletas) {
         this.boletas = boletas;
+    }
+    public Set<ComboHasFactura> getComboHasFacturas() {
+        return this.comboHasFacturas;
+    }
+    
+    public void setComboHasFacturas(Set<ComboHasFactura> comboHasFacturas) {
+        this.comboHasFacturas = comboHasFacturas;
     }
 
 

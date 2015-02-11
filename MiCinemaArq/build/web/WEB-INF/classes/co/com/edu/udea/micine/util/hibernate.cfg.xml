@@ -11,10 +11,13 @@
     <mapping resource="co/com/edu/udea/micine/model/Tipooperador.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Pelicula.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Factura.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Reserva.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Tarifa.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Combo.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Localidad.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Sala.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Formato.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/ComboHasFactura.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Cine.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Tipopago.hbm.xml"/>
     <mapping resource="co/com/edu/udea/micine/model/Boleta.hbm.xml"/>

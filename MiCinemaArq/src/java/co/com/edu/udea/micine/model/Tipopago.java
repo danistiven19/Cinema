@@ -1,5 +1,5 @@
 package co.com.edu.udea.micine.model;
-// Generated 11/02/2015 01:29:45 PM by Hibernate Tools 3.6.0
+// Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class Tipopago  implements java.io.Serializable {
 
      private Integer idTipoPago;
      private String nombreTipo;
-     private Set<Boleta> boletas = new HashSet<Boleta>(0);
+     private Set<Factura> facturas = new HashSet<Factura>(0);
 
     public Tipopago() {
     }
@@ -22,9 +22,9 @@ public class Tipopago  implements java.io.Serializable {
     public Tipopago(String nombreTipo) {
         this.nombreTipo = nombreTipo;
     }
-    public Tipopago(String nombreTipo, Set<Boleta> boletas) {
+    public Tipopago(String nombreTipo, Set<Factura> facturas) {
        this.nombreTipo = nombreTipo;
-       this.boletas = boletas;
+       this.facturas = facturas;
     }
    
     public Integer getIdTipoPago() {
@@ -41,12 +41,12 @@ public class Tipopago  implements java.io.Serializable {
     public void setNombreTipo(String nombreTipo) {
         this.nombreTipo = nombreTipo;
     }
-    public Set<Boleta> getBoletas() {
-        return this.boletas;
+    public Set<Factura> getFacturas() {
+        return this.facturas;
     }
     
-    public void setBoletas(Set<Boleta> boletas) {
-        this.boletas = boletas;
+    public void setFacturas(Set<Factura> facturas) {
+        this.facturas = facturas;
     }
 
 
