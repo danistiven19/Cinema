@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 07:39:26 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Socio" table="socio" catalog="micinemaarq">
+        <id name="idSocio" type="int">
+            <column name="idSocio" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="45" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="15" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="facturas" table="factura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Socio_idSocio" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Factura" />
+        </set>
+        <set name="tarjetas" table="tarjeta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Socio_idSocio" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Tarjeta" />
+        </set>
+    </class>
+</hibernate-mapping>

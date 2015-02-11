@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 07:39:26 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Tarjeta" table="tarjeta" catalog="micinemaarq">
+        <id name="idTarjeta" type="java.lang.Integer">
+            <column name="IdTarjeta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="socio" class="co.com.edu.udea.micine.model.Socio" fetch="select">
+            <column name="Socio_idSocio" not-null="true" />
+        </many-to-one>
+        <property name="puntos" type="java.lang.Integer">
+            <column name="Puntos" />
+        </property>
+        <property name="fechaCreacion" type="date">
+            <column name="FechaCreacion" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
