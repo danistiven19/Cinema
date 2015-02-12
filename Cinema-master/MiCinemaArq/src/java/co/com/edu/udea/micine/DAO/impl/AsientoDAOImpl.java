@@ -7,7 +7,10 @@ package co.com.edu.udea.micine.DAO.impl;
 
 import co.com.edu.udea.micine.DAO.IAsientoDAO;
 import co.com.edu.udea.micine.model.Asiento;
+import co.com.edu.udea.micine.model.SalaId;
+import co.com.edu.udea.micine.model.Socio;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -69,6 +72,15 @@ public class AsientoDAOImpl implements IAsientoDAO {
         tx.commit();
         session.close();
         return result;
+    }
+
+    @Override
+    public List<Asiento> obtenerAsientoPorSala(SalaId s) {
+         Session session = this.sessionFactory.openSession();
+        Query query = session.createQuery("from Asiento where Sala_idSala = :sala");
+        query.setParameter("sala", s.getIdSala());
+        List<Asiento> lAs = query.list();
+        return lAs;
     }
 
 }

@@ -24,6 +24,22 @@
         <servlet-name>PreFacturaServlet</servlet-name>
         <servlet-class>co.com.edu.udea.micine.controller.PreFacturaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AsientoServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.AsientoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AnadirAsientoServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.AnadirAsientoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SeleccionarFuncionServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.SeleccionarFuncionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NuevaBoletaServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.NuevaBoletaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -39,6 +55,22 @@
     <servlet-mapping>
         <servlet-name>PreFacturaServlet</servlet-name>
         <url-pattern>/PreFacturaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsientoServlet</servlet-name>
+        <url-pattern>/AsientoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnadirAsientoServlet</servlet-name>
+        <url-pattern>/AnadirAsientoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeleccionarFuncionServlet</servlet-name>
+        <url-pattern>/SeleccionarFuncionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaBoletaServlet</servlet-name>
+        <url-pattern>/NuevaBoletaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

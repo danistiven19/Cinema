@@ -40,12 +40,15 @@
                 <value>co/com/edu/udea/micine/model/Asiento.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Boleta.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Cine.hbm.xml</value>
+                <value>co/com/edu/udea/micine/model/Combo.hbm.xml</value>
+                <value>co/com/edu/udea/micine/model/ComboHasFactura.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Factura.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Formato.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Funcion.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Localidad.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Operador.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Pelicula.hbm.xml</value>
+                <value>co/com/edu/udea/micine/model/Reserva.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Sala.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Socio.hbm.xml</value>
                 <value>co/com/edu/udea/micine/model/Tarifa.hbm.xml</value>
@@ -73,6 +76,24 @@
         <property name="sessionFactory" ref="hibernateSessionFactory" />
     </bean>
         <bean id="funcionDAO" class="co.com.edu.udea.micine.DAO.impl.FuncionDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+     <bean id="localidadDAO" class="co.com.edu.udea.micine.DAO.impl.LocalidadDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+    <bean id="asientoDAO" class="co.com.edu.udea.micine.DAO.impl.AsientoDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+    <bean id="peliculaDAO" class="co.com.edu.udea.micine.DAO.impl.PeliculaDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+     <bean id="salaDAO" class="co.com.edu.udea.micine.DAO.impl.SalaDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+    <bean id="tarifaDAO" class="co.com.edu.udea.micine.DAO.impl.TarifaDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
+     <bean id="formatoDAO" class="co.com.edu.udea.micine.DAO.impl.FormatoDAOImpl">
         <property name="sessionFactory" ref="hibernateSessionFactory" />
     </bean>
 </beans>

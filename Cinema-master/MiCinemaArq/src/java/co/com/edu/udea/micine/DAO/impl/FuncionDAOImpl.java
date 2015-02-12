@@ -7,6 +7,9 @@ package co.com.edu.udea.micine.DAO.impl;
 
 import co.com.edu.udea.micine.DAO.IFuncionDAO;
 import co.com.edu.udea.micine.model.Funcion;
+import co.com.edu.udea.micine.model.FuncionId;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -44,7 +47,7 @@ public class FuncionDAOImpl implements IFuncionDAO{
     }
 
     @Override
-    public void eliminarFuncion(int id) {
+    public void eliminarFuncion(FuncionId id) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.delete(this.obtenerFuncion(id));
@@ -53,7 +56,7 @@ public class FuncionDAOImpl implements IFuncionDAO{
     }
 
     @Override
-    public Funcion obtenerFuncion(int id) {
+    public Funcion obtenerFuncion(FuncionId id) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Funcion c = (Funcion) session.get(Funcion.class, id);
@@ -75,17 +78,17 @@ public class FuncionDAOImpl implements IFuncionDAO{
   public List<Funcion> obtenerFuncionPorCiudad(String ciudad) {
   Session session = this.sessionFactory.openSession();
   Transaction tx = session.beginTransaction();
-  Query q = session.createQuery("select * \n" +
-"from Funcion as f\n" +
-"join Sala as s\n" +
-"join Cine as c\n" +
-"where f.Sala_idSala = : s.idSala\n" +
-"	and s.idSala = : c.idCine \n" +
-"	and c.Ciudad = : ciudad ");
-  q.setParameter("ciudad", ciudad);
-  List<Funcion> as = q.list();
+  List<Funcion> as = this.obtenerFunciones();
+  List<Funcion> def = new ArrayList<Funcion>();
+  Iterator it =  as.iterator();
+  while(it.hasNext()){
+      Funcion ff = (Funcion) it.next();
+      if(ff.getSala().getCine().getCiudad().equals(ciudad)){
+          def.add(ff);
+      }
+  }
   session.close();
-  return as;
+  return def;
   }
     
         

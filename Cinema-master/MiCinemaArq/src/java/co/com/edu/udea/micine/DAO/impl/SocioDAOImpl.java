@@ -66,7 +66,7 @@ public class SocioDAOImpl implements ISocioDAO{
     public List<Socio> obtenerSocios() {
          Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-         List<Socio> result = (List<Socio>)session.createQuery("from socio").list();
+         List<Socio> result = (List<Socio>)session.createQuery("from Socio").list();
         tx.commit();
         session.close();
         return result;

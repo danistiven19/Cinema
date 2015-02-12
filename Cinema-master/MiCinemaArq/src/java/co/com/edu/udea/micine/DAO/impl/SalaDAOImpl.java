@@ -7,6 +7,7 @@ package co.com.edu.udea.micine.DAO.impl;
 
 import co.com.edu.udea.micine.DAO.ISalaDAO;
 import co.com.edu.udea.micine.model.Sala;
+import co.com.edu.udea.micine.model.SalaId;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,7 +41,7 @@ public class SalaDAOImpl implements ISalaDAO{
     }
 
     @Override
-    public void eliminarSala(int id) {
+    public void eliminarSala(SalaId id) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.delete(this.obtenerSala(id));
@@ -49,7 +50,7 @@ public class SalaDAOImpl implements ISalaDAO{
     }
 
     @Override
-    public Sala obtenerSala(int id) {
+    public Sala obtenerSala(SalaId id) {
           Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Sala c = (Sala) session.get(Sala.class, id);

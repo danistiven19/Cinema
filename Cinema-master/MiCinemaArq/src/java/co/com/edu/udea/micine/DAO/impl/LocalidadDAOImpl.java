@@ -67,7 +67,7 @@ public class LocalidadDAOImpl implements ILocalidadDAO {
     public List<Localidad> obtenerLocalidades() {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        List<Localidad> result = (List<Localidad>) session.createQuery("from localidad").list();
+        List<Localidad> result = (List<Localidad>) session.createQuery("from Localidad").list();
         tx.commit();
         session.close();
         return result;
