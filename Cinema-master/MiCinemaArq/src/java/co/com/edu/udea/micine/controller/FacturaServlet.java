@@ -5,24 +5,18 @@
  */
 package co.com.edu.udea.micine.controller;
 
-import co.com.edu.udea.micine.DAO.IFuncionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import co.com.edu.udea.micine.DAO.IFuncionDAO;
-import co.com.edu.udea.micine.model.*;
-import java.util.List;
-import javax.naming.Context;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author julianesten
  */
-public class FuncionServlet extends HttpServlet {
+public class FacturaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,13 +29,25 @@ public class FuncionServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("co/com/edu/udea/micine/util/springConf.xml");
         response.setContentType("text/html;charset=UTF-8");
-        String ciudad = (String) request.getAttribute("seleccion");
-        IFuncionDAO funcionDAO = context.getBean(IFuncionDAO.class);
-        List<Funcion> funciones = funcionDAO.obtenerFuncionPorCiudad(ciudad);
-        request.getSession().setAttribute("funciones", funciones); 
-        response.sendRedirect("MostrarFunciones.jsp"); 
+        String cliente = (String) request.getAttribute("cliente");
+        String accionEstado = (String) request.getAttribute("estado");
+        String accionTipoPago = (String) request.getAttribute("tipoPago");
+        int idFuncion = (int) request.getAttribute("pelicula");
+        if("pago".equalsIgnoreCase(accionEstado) && "puntos".equalsIgnoreCase(accionTipoPago)){
+            //El cliente es socio y va a pagar con puntos
+        }else if("pago".equalsIgnoreCase(accionEstado) && "efectivo".equalsIgnoreCase(accionTipoPago)){
+        //El cliente va a pagar con efectivo
+        }else if("pago".equalsIgnoreCase(accionEstado) && "tarjeta".equalsIgnoreCase(accionTipoPago)){
+            //El cliente va a pagar con tarjeta
+        }else if ("reservar".equalsIgnoreCase(accionEstado)){
+            
+        }   
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,4 +90,3 @@ public class FuncionServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

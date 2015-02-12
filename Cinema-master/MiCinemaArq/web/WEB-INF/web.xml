@@ -16,6 +16,14 @@
         <servlet-name>FuncionServlet</servlet-name>
         <servlet-class>co.com.edu.udea.micine.controller.FuncionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FacturaServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.FacturaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PreFacturaServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.PreFacturaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>FuncionServlet</servlet-name>
         <url-pattern>/FuncionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FacturaServlet</servlet-name>
+        <url-pattern>/FacturaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreFacturaServlet</servlet-name>
+        <url-pattern>/PreFacturaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
