@@ -72,4 +72,7 @@
     <bean id="socioDAO" class="co.com.edu.udea.micine.DAO.impl.SocioDAOImpl">
         <property name="sessionFactory" ref="hibernateSessionFactory" />
     </bean>
+        <bean id="funcionDAO" class="co.com.edu.udea.micine.DAO.impl.FuncionDAOImpl">
+        <property name="sessionFactory" ref="hibernateSessionFactory" />
+    </bean>
 </beans>

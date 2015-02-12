@@ -18,4 +18,5 @@ public interface IFuncionDAO {
     public void eliminarFuncion(int id);
     public Funcion obtenerFuncion(int id);
     public List<Funcion> obtenerFunciones();    
+    public List<Funcion> obtenerFuncionPorCiudad(String ciudad);
 }

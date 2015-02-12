@@ -8,6 +8,7 @@ package co.com.edu.udea.micine.DAO.impl;
 import co.com.edu.udea.micine.DAO.IFuncionDAO;
 import co.com.edu.udea.micine.model.Funcion;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -70,5 +71,24 @@ public class FuncionDAOImpl implements IFuncionDAO{
         session.close();
         return result;
     }
+    
+  public List<Funcion> obtenerFuncionPorCiudad(String ciudad) {
+  Session session = this.sessionFactory.openSession();
+  Transaction tx = session.beginTransaction();
+  Query q = session.createQuery("select * \n" +
+"from Funcion as f\n" +
+"join Sala as s\n" +
+"join Cine as c\n" +
+"where f.Sala_idSala = : s.idSala\n" +
+"	and s.idSala = : c.idCine \n" +
+"	and c.Ciudad = : ciudad ");
+  q.setParameter("ciudad", ciudad);
+  List<Funcion> as = q.list();
+  session.close();
+  return as;
+  }
+    
         
 }
+
+
