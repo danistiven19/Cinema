@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Asiento" table="asiento" catalog="micinemaarq">
+        <composite-id name="id" class="co.com.edu.udea.micine.model.AsientoId">
+            <key-property name="idAsiento" type="int">
+                <column name="idAsiento" />
+            </key-property>
+            <key-property name="localidadIdLocalidad" type="int">
+                <column name="Localidad_idLocalidad" />
+            </key-property>
+            <key-property name="salaIdSala" type="int">
+                <column name="Sala_idSala" />
+            </key-property>
+            <key-property name="salaCineIdCine" type="int">
+                <column name="Sala_Cine_idCine" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="localidad" class="co.com.edu.udea.micine.model.Localidad" update="false" insert="false" fetch="select">
+            <column name="Localidad_idLocalidad" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sala" class="co.com.edu.udea.micine.model.Sala" update="false" insert="false" fetch="select">
+            <column name="Sala_idSala" not-null="true" />
+            <column name="Sala_Cine_idCine" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="string">
+            <column name="Estado" length="20" />
+        </property>
+        <set name="boletas" table="boleta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Asiento_idAsiento" not-null="true" />
+                <column name="Asiento_Localidad_idLocalidad" not-null="true" />
+                <column name="Asiento_Sala_idSala" not-null="true" />
+                <column name="Asiento_Sala_Cine_idCine" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Boleta" />
+        </set>
+    </class>
+</hibernate-mapping>
