@@ -6,6 +6,7 @@
 package co.com.edu.udea.micine.DAO;
 
 import co.com.edu.udea.micine.model.Sala;
+import co.com.edu.udea.micine.model.SalaId;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
 public interface ISalaDAO {
     public void guardarSala(Sala p);
     public void editarSala(Sala p);
-    public void eliminarSala(int id);
-    public Sala obtenerSala(int id);
+    public void eliminarSala(SalaId id);
+    public Sala obtenerSala(SalaId id);
     public List<Sala> obtenerSalas();    
 }

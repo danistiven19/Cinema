@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Boleta" table="boleta" catalog="micinemaarq">
+        <id name="idBoleta" type="java.lang.Integer">
+            <column name="IdBoleta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="asiento" class="co.com.edu.udea.micine.model.Asiento" fetch="select">
+            <column name="Asiento_idAsiento" not-null="true" />
+            <column name="Asiento_Localidad_idLocalidad" not-null="true" />
+            <column name="Asiento_Sala_idSala" not-null="true" />
+            <column name="Asiento_Sala_Cine_idCine" not-null="true" />
+        </many-to-one>
+        <many-to-one name="factura" class="co.com.edu.udea.micine.model.Factura" fetch="select">
+            <column name="Factura_idFactura" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcion" class="co.com.edu.udea.micine.model.Funcion" fetch="select">
+            <column name="Funcion_Pelicula_idPelicula" not-null="true" />
+            <column name="Funcion_Fecha" length="19" not-null="true" />
+        </many-to-one>
+        <property name="esReserva" type="boolean">
+            <column name="EsReserva" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

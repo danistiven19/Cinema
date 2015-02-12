@@ -6,6 +6,7 @@
 package co.com.edu.udea.micine.DAO;
 
 import co.com.edu.udea.micine.model.Funcion;
+import co.com.edu.udea.micine.model.FuncionId;
 import java.util.List;
 
 /**
@@ -15,8 +16,8 @@ import java.util.List;
 public interface IFuncionDAO {
     public void guardarFuncion(Funcion p);
     public void editarFuncion(Funcion p);
-    public void eliminarFuncion(int id);
-    public Funcion obtenerFuncion(int id);
+    public void eliminarFuncion(FuncionId id);
+    public Funcion obtenerFuncion(FuncionId id);
     public List<Funcion> obtenerFunciones();    
     public List<Funcion> obtenerFuncionPorCiudad(String ciudad);
 }

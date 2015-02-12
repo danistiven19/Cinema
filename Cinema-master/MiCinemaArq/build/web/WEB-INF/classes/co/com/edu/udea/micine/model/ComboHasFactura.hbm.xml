@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.ComboHasFactura" table="combo_has_factura" catalog="micinemaarq">
+        <composite-id name="id" class="co.com.edu.udea.micine.model.ComboHasFacturaId">
+            <key-property name="comboIdcombo" type="int">
+                <column name="combo_idcombo" />
+            </key-property>
+            <key-property name="facturaIdFactura" type="int">
+                <column name="Factura_idFactura" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="factura" class="co.com.edu.udea.micine.model.Factura" update="false" insert="false" fetch="select">
+            <column name="Factura_idFactura" not-null="true" />
+        </many-to-one>
+        <many-to-one name="combo" class="co.com.edu.udea.micine.model.Combo" update="false" insert="false" fetch="select">
+            <column name="combo_idcombo" not-null="true" />
+        </many-to-one>
+        <property name="numeroCombos" type="int">
+            <column name="NumeroCombos" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

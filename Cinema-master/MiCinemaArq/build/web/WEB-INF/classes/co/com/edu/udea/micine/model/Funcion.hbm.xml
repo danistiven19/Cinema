@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Funcion" table="funcion" catalog="micinemaarq">
+        <composite-id name="id" class="co.com.edu.udea.micine.model.FuncionId">
+            <key-property name="peliculaIdPelicula" type="int">
+                <column name="Pelicula_idPelicula" />
+            </key-property>
+            <key-property name="fecha" type="timestamp">
+                <column name="Fecha" length="19" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="pelicula" class="co.com.edu.udea.micine.model.Pelicula" update="false" insert="false" fetch="select">
+            <column name="Pelicula_idPelicula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tarifa" class="co.com.edu.udea.micine.model.Tarifa" fetch="select">
+            <column name="Tarifa_idTarifa" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sala" class="co.com.edu.udea.micine.model.Sala" fetch="select">
+            <column name="Sala_idSala" not-null="true" />
+            <column name="Sala_Cine_idCine" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="string">
+            <column name="Estado" length="20" not-null="true">
+                <comment>Estado: Activa/Inactiva</comment>
+            </column>
+        </property>
+        <set name="boletas" table="boleta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Funcion_Pelicula_idPelicula" not-null="true" />
+                <column name="Funcion_Fecha" length="19" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Boleta" />
+        </set>
+    </class>
+</hibernate-mapping>
