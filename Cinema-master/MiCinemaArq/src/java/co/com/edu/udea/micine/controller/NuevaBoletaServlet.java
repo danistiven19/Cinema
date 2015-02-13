@@ -48,6 +48,7 @@ public class NuevaBoletaServlet extends HttpServlet {
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
         Funcion ff = (Funcion) request.getSession().getAttribute("funcion");
+        System.out.println(ff.getId().getFecha());
         request.getSession().setAttribute("funcion", ff);
         response.sendRedirect("Boleta.jsp");
     }

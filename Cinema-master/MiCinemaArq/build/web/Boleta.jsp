@@ -42,15 +42,15 @@
                 request.getSession().setAttribute("funcion", f);*/
                 
             }
-            
+            System.out.println(f.getTarifa().getIdTarifa());
             IPeliculaDAO ipDAO = context.getBean(PeliculaDAOImpl.class);
             f.setPelicula(ipDAO.obtenerPelicula(f.getPelicula().getIdPelicula()));
             
             ILocalidadDAO iloc = context.getBean(LocalidadDAOImpl.class);
             IFormatoDAO ifor = context.getBean(FormatoDAOImpl.class);
             ITarifaDAO it = context.getBean(TarifaDAOImpl.class);
-            f.setTarifa(it.obtenerTarifa(f.getTarifa().getIdTarifa()));
             
+            f.setTarifa(it.obtenerTarifa(f.getTarifa().getIdTarifa()));
             Tarifa t = f.getTarifa();
             t.setFormato(ifor.obtenerFormato(t.getIdTarifa()));
             t.setLocalidad(iloc.obtenerLocalidad(t.getLocalidad().getIdLocalidad()));

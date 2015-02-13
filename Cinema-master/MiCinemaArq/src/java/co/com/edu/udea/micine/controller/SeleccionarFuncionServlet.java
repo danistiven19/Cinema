@@ -7,11 +7,16 @@
 package co.com.edu.udea.micine.controller;
 
 import co.com.edu.udea.micine.DAO.IOperadorDAO;
+import co.com.edu.udea.micine.DAO.ISocioDAO;
 import co.com.edu.udea.micine.DAO.impl.OperadorDAOImpl;
+import co.com.edu.udea.micine.DAO.impl.SocioDAOImpl;
 import co.com.edu.udea.micine.model.Funcion;
+import co.com.edu.udea.micine.model.FuncionId;
 import co.com.edu.udea.micine.model.Operador;
+import co.com.edu.udea.micine.model.Socio;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,10 +42,14 @@ public class SeleccionarFuncionServlet extends HttpServlet {
             throws ServletException, IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("co/com/edu/udea/micine/util/springConf.xml");
         response.setContentType("text/html;charset=UTF-8");
-        Funcion f = (Funcion) request.getSession().getAttribute("funcion");
-        request.getSession().setAttribute("funcion", f);
+        List<Funcion> fs =(List<Funcion>) request.getSession().getAttribute("funciones");
+        String selec = request.getParameter("funcion");
+        Funcion f = fs.get(Integer.parseInt(selec));
+        request.getSession().setAttribute("funcion",  f);
         IOperadorDAO iDAO = context.getBean(OperadorDAOImpl.class);
-        request.getSession().setAttribute("operador",(Operador) iDAO.listarOperadores().get(0));
+        ISocioDAO isoc= context.getBean(SocioDAOImpl.class);
+        request.getSession().setAttribute("operadores",(List<Operador>) iDAO.listarOperadores());
+        request.getSession().setAttribute("clientes",(List<Socio>) isoc.obtenerSocios());
         response.sendRedirect("Factura.jsp");
         
     }

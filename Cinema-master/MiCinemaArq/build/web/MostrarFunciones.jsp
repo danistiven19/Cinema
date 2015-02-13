@@ -40,7 +40,7 @@
                 <td><%=f.getPelicula().getNombre() %></td>
                 <td><% if(f.getEstado().equals("true")){ %> Disponible  <% }else{ %> No disponible <% } %></td>
                 <td><%=f.getId().getFecha() %></td>
-                <td><input type="radio" name="funcion" value="<%=f %>" /></td>
+                <td><input type="radio" name="funcion" value="<%=i   %>" /></td>
             </tr>
                     <%
                 }

@@ -46,6 +46,11 @@ public class FuncionId  implements java.io.Serializable {
 		 return (this.getPeliculaIdPelicula()==castOther.getPeliculaIdPelicula())
  && ( (this.getFecha()==castOther.getFecha()) || ( this.getFecha()!=null && castOther.getFecha()!=null && this.getFecha().equals(castOther.getFecha()) ) );
    }
+
+    @Override
+    public String toString() {
+        return "FuncionId{" + "peliculaIdPelicula=" + peliculaIdPelicula + ", fecha=" + fecha + '}';
+    }
    
    public int hashCode() {
          int result = 17;
