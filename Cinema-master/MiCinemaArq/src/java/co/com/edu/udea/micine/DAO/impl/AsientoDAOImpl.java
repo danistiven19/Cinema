@@ -7,6 +7,7 @@ package co.com.edu.udea.micine.DAO.impl;
 
 import co.com.edu.udea.micine.DAO.IAsientoDAO;
 import co.com.edu.udea.micine.model.Asiento;
+import co.com.edu.udea.micine.model.AsientoId;
 import co.com.edu.udea.micine.model.SalaId;
 import co.com.edu.udea.micine.model.Socio;
 import java.util.List;
@@ -46,7 +47,7 @@ public class AsientoDAOImpl implements IAsientoDAO {
     }
 
     @Override
-    public void eliminarAsiento(int id) {
+    public void eliminarAsiento(AsientoId id) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.delete(this.obtenerAsiento(id));
@@ -55,7 +56,7 @@ public class AsientoDAOImpl implements IAsientoDAO {
     }
 
     @Override
-    public Asiento obtenerAsiento(int id) {
+    public Asiento obtenerAsiento(AsientoId id) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Asiento c = (Asiento) session.get(Asiento.class, id);

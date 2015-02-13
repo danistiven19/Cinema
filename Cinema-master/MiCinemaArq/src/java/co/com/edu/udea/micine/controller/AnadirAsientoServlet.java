@@ -6,12 +6,22 @@
 
 package co.com.edu.udea.micine.controller;
 
+import co.com.edu.udea.micine.DAO.IAsientoDAO;
+import co.com.edu.udea.micine.DAO.ICineDAO;
+import co.com.edu.udea.micine.DAO.ISalaDAO;
+import co.com.edu.udea.micine.DAO.impl.AsientoDAOImpl;
+import co.com.edu.udea.micine.DAO.impl.CineDAOImpl;
+import co.com.edu.udea.micine.DAO.impl.SalaDAOImpl;
+import co.com.edu.udea.micine.model.Asiento;
+import co.com.edu.udea.micine.model.AsientoId;
+import co.com.edu.udea.micine.model.Sala;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -31,8 +41,19 @@ public class AnadirAsientoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("co/com/edu/udea/micine/util/springConf.xml");
+        
         String a = request.getParameter("asiEscogido");
-        request.getSession().setAttribute("AsientoEscogido",a );
+        String loca = request.getParameter("loca");
+        String sala = request.getParameter("sala");
+        String cine = request.getParameter("cine");
+        AsientoId asid = new AsientoId();
+        asid.setIdAsiento(Integer.parseInt(a));
+        asid.setLocalidadIdLocalidad(Integer.parseInt(loca));
+        asid.setSalaIdSala(Integer.parseInt(sala));
+        asid.setSalaCineIdCine(Integer.parseInt(cine));
+        IAsientoDAO iasi = context.getBean(AsientoDAOImpl.class);        
+        request.getSession().setAttribute("AsientoEscogido", (Asiento) iasi.obtenerAsiento(asid));
         request.getSession().setAttribute("Recargar","SI" );
         response.sendRedirect("Asiento.jsp");
     }

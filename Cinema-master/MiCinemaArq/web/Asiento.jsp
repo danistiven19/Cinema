@@ -15,7 +15,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+            <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <%     ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("co/com/edu/udea/micine/util/springConf.xml");
@@ -29,26 +34,28 @@
            
             List<Localidad> loc = (List<Localidad>) request.getSession().getAttribute("localidades");
             List<Asiento> lisAs = (List<Asiento>)  request.getSession().getAttribute("asientos");
-            String l= (String) request.getSession().getAttribute("localidad");
+            Asiento asi =(Asiento) request.getSession().getAttribute("asiento");
+            int l= asi.getLocalidad().getIdLocalidad();
             ILocalidadDAO iloca = context.getBean(LocalidadDAOImpl.class);
-            Localidad lo = iloca.obtenerLocalidad(Integer.parseInt(l));
+            Localidad lo = iloca.obtenerLocalidad(l);
             //System.out.print(lisAs.get(0).getId());
             %>
     </head>
     <body >
-<form id="forma" name="forma" action="AsientoServlet" ></form>
+        <form id="forma" name="forma" action="AsientoServlet" class="form" ></form>
         <form method="get" id="form2" name="form2" action="AnadirAsientoServlet" style="width: 500px; margin: auto">
              
             <% if(f != null && loc != null && lisAs != null){ %>
-            <table>
-                <tr><td>Sala:</td><td><%=f.getSala().getId().getIdSala() %></td></tr>
+            <table class="table">
+                <tr><td><input type="hidden" name="sala" value="<%=f.getSala().getId().getIdSala() %>" /></td></tr>
+                <tr><td><input type="hidden" name="cine" value="<%=f.getSala().getCine().getIdCine() %>" /></td></tr>
                 <tr><td>localidad:</td><td>
-                        <!--<select name="loca" onchange="document.form2.action = 'AsientoServlet'; document.form2.submit();">
+                        <select name="loca" class="form-control" onchange="document.form2.action = 'AsientoServlet'; document.form2.submit();">
                             <% for(int i=0; i< loc.size(); i++){%>
-                            <option value="<%=loc.get(i).getIdLocalidad() %>" <% if(request.getSession().getAttribute("localidad") != null && loc.get(i).getIdLocalidad() == Integer.parseInt((String)request.getSession().getAttribute("localidad"))){ %> selected="true"<%} %>><%=loc.get(i).getNombre() %> </option>
+                            <option value="<%=loc.get(i).getIdLocalidad() %>" <% if(l != 0 && loc.get(i).getIdLocalidad() == l){ %> selected="true"<%} %>><%=loc.get(i).getNombre() %> </option>
                             <% } %>
-                        </select>-->
-                            <input type="text" value="<%=lo.getNombre() %>" />
+                        </select>
+                            
                     </td></tr>
                 <tr><td>Asiento:</td><td>
                         <select name="asiEscogido" >
@@ -59,7 +66,7 @@
                         
                     </td></tr>
             </table>
-                        <input type="submit" value="Añadir Asiento"  />
+                        <input type="submit" value="Añadir Asiento" class="btn btn-info"  />
             <%    }else{
                 
             }    

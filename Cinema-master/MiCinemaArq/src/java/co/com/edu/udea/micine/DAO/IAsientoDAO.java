@@ -6,6 +6,7 @@
 package co.com.edu.udea.micine.DAO;
 
 import co.com.edu.udea.micine.model.Asiento;
+import co.com.edu.udea.micine.model.AsientoId;
 import co.com.edu.udea.micine.model.SalaId;
 import java.util.List;
 
@@ -16,8 +17,8 @@ import java.util.List;
 public interface IAsientoDAO {
     public void guardarAsiento(Asiento p);
     public void editarAsiento(Asiento p);
-    public void eliminarAsiento(int id);
-    public Asiento obtenerAsiento(int id);
+    public void eliminarAsiento(AsientoId id);
+    public Asiento obtenerAsiento(AsientoId id);
     public List<Asiento> obtenerAsiento();    
     public List<Asiento> obtenerAsientoPorSala(SalaId s);    
 }
