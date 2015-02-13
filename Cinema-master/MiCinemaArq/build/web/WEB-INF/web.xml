@@ -40,6 +40,10 @@
         <servlet-name>NuevaBoletaServlet</servlet-name>
         <servlet-class>co.com.edu.udea.micine.controller.NuevaBoletaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AnadirBoletaServlet</servlet-name>
+        <servlet-class>co.com.edu.udea.micine.controller.AnadirBoletaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>NuevaBoletaServlet</servlet-name>
         <url-pattern>/NuevaBoletaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnadirBoletaServlet</servlet-name>
+        <url-pattern>/AnadirBoletaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -57,6 +57,11 @@ public final class Funcion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
+      out.write("                <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css\">\r\n");
+      out.write("\r\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css\">\r\n");
+      out.write("\r\n");
+      out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js\"></script>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Funcion</title>\r\n");
       out.write("        ");
@@ -69,8 +74,8 @@ public final class Funcion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body style=\"width:1024px; margin: auto\">\r\n");
       out.write("       \r\n");
       out.write("        <h1>Seleccione una ciudad para consular funciones:</h1>\r\n");
-      out.write("            <form action=\"FuncionServlet\" method=\"post\">\r\n");
-      out.write("                <select name=\"ciudad\" id=\"ciudad\">\r\n");
+      out.write("        <form action=\"FuncionServlet\" method=\"post\" class=\"form\">\r\n");
+      out.write("            <select name=\"ciudad\" id=\"ciudad\" class=\"form-control\" style=\"width:  300px;\" >\r\n");
       out.write("                    <option value=\"Medellin\">Medellín</option>\r\n");
       out.write("                    <option value=\"Cali\">Cali</option>\r\n");
       out.write("                    <option value=\"Bogota\">Bógota</option>\r\n");
@@ -82,7 +87,7 @@ public final class Funcion_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <option value=\"Manizales\">Manizales</option>\r\n");
       out.write("                    <option value=\"Neiva\">Neiva</option>\r\n");
       out.write("                </select>\r\n");
-      out.write("                <input type=\"submit\" name=\"consultar\" value=\"Cargar\" />\r\n");
+      out.write("            <input type=\"submit\" name=\"consultar\" value=\"Cargar\" class=\"btn btn-info\" />\r\n");
       out.write("            </form>\r\n");
       out.write("     \r\n");
       out.write("    </body>\r\n");

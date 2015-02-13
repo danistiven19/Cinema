@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Funciones Por Ciudad</title>
         <%
@@ -17,8 +20,8 @@
     </head>
     <body>
         <h1>Funciones Por Ciudad</h1>
-        <form method="post" action="SeleccionarFuncionServlet">
-        <table >
+        <form method="post" action="SeleccionarFuncionServlet" class="form">
+            <table class="table " >
             <th>Cine</th>
             <th>Pelicula</th>
             <th>Estado</th>
@@ -46,7 +49,7 @@
                 }
                 %>
         </table>
-        <input type="submit"  value="Seleccionar" />
+        <input type="submit"  value="Seleccionar" class="btn btn-info" />
         </form>
     </body>
 </html>
