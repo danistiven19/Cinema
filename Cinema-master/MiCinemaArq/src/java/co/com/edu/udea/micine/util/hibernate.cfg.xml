@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/micinemaarq?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <mapping resource="co/com/edu/udea/micine/model/Asiento.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Tipooperador.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Pelicula.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Factura.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Reserva.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Tarifa.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Combo.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Localidad.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Sala.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Formato.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/ComboHasFactura.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Cine.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Tipopago.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Boleta.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Socio.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Operador.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Funcion.hbm.xml"/>
+    <mapping resource="co/com/edu/udea/micine/model/Tarjeta.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

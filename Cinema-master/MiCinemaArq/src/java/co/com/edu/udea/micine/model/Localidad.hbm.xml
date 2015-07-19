@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/02/2015 05:36:49 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="co.com.edu.udea.micine.model.Localidad" table="localidad" catalog="micinemaarq">
+        <id name="idLocalidad" type="java.lang.Integer">
+            <column name="idLocalidad" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+        <set name="asientos" table="asiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Localidad_idLocalidad" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Asiento" />
+        </set>
+        <set name="tarifas" table="tarifa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Localidad_idLocalidad" not-null="true" />
+            </key>
+            <one-to-many class="co.com.edu.udea.micine.model.Tarifa" />
+        </set>
+    </class>
+</hibernate-mapping>
